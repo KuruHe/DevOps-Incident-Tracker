@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/incident_db
+    depends_on:
+      - postgres
+  frontend:
+    build: ./frontend
+    ports: ["5173:5173"]
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=incident_db
+    ports: ["5432:5432"]
