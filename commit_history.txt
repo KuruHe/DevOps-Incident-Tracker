@@ -1,1 +1,1 @@
-Commit 1 \n
+Commit 1 \nCommit 2 \n
